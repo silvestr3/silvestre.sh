@@ -12,7 +12,7 @@ export function Hero() {
           <span className="uppercase text-primary font-semibold">
             fellipe silvestre
           </span>
-          <h1 className="text-foreground text-5xl font-bold flex flex-col lg:flex-row flex-wrap lg:items-center gap-3">
+          <h1 className="text-foreground text-5xl font-bold flex flex-col lg:flex-row md:flex-row flex-wrap lg:items-center gap-3">
             Desenvolvedor
             <FlipWords
               duration={3000}
