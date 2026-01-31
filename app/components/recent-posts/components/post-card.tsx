@@ -32,7 +32,7 @@ export function PostCard(post: PostCardProps) {
 
   return (
     <Card
-      className="w-70 cursor-pointer hover:shadow-lg hover:-translate-y-2 transition-all duration-200"
+      className="w-70 cursor-pointer hover:shadow-xl hover:-translate-y-2 hover:border-primary/50 transition-all duration-200"
       onClick={() => handleOpenPost(post.href)}
     >
       <CardHeader>

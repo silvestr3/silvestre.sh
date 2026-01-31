@@ -1,13 +1,4 @@
 import { SectionTitle } from "@/components/global/section-title";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { PostCard } from "./components/post-card";
 import { SectionWrapper } from "@/components/global/section-wrapper";
