@@ -1,3 +1,5 @@
+import { TextAnimate } from "../ui/text-animate";
+
 interface SectionTitleProps {
   category: string;
   title: string;
@@ -6,10 +8,23 @@ interface SectionTitleProps {
 export function SectionTitle({ category, title }: SectionTitleProps) {
   return (
     <div className="mt-24 mb-12">
-      <span className="text-primary uppercase font-medium tracking-wide text-sm block">
+      <TextAnimate
+        className="text-primary uppercase font-medium tracking-wide text-sm block"
+        as={"span"}
+        animation="fadeIn"
+        once
+      >
         {category}
-      </span>
-      <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+      </TextAnimate>
+      <TextAnimate
+        as={"h2"}
+        animation="fadeIn"
+        once
+        delay={0.2}
+        className="text-3xl font-bold tracking-tight"
+      >
+        {title}
+      </TextAnimate>
     </div>
   );
 }
