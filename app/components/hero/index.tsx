@@ -3,15 +3,21 @@ import FlipWords from "@/components/ui/flip-words";
 import { LinkRow } from "./components/link-rows";
 import { Illustration } from "./components/illustration";
 import { IllustrationProgramming } from "./components/illustration-programming";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 export function Hero() {
   return (
     <section className="flex-col-reverse flex lg:flex-row items-center lg:justify-between min-h-screen w-[min(100%,1600px)] mx-auto items-left p-4 px-4 md:px-12 lg:px-16 font-sans bg-background gap-10">
       <div className="flex flex-col gap-10 w-full">
         <div className="flex flex-col gap-2 w-full">
-          <span className="uppercase text-primary font-semibold">
+          <TextAnimate
+            className="uppercase text-primary font-semibold"
+            as="span"
+            animation="slideRight"
+            once
+          >
             fellipe silvestre
-          </span>
+          </TextAnimate>
           <h1 className="text-foreground text-5xl font-bold flex flex-col lg:flex-row md:flex-row flex-wrap lg:items-center gap-3">
             Desenvolvedor
             <FlipWords
