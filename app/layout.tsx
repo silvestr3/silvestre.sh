@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-background text-foreground overflow-x-hidden`}
       >
         {children}
       </body>
