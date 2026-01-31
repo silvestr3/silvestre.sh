@@ -15,6 +15,7 @@ export function Hero() {
             duration={3000}
             className="text-inherit p-0 m-0"
             words={[
+              "Front end",
               "Javascript",
               "Typescript",
               "React",
