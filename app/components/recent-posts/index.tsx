@@ -3,8 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { PostCard } from "./components/post-card";
 import { SectionWrapper } from "@/components/global/section-wrapper";
 import { blogApi } from "@/lib/api";
-import { Suspense, use } from "react";
+import { use } from "react";
+import { AsyncBoundary } from "@/components/global/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
+import { ErrorPosts } from "./components/error-posts";
 
 export function RecentPosts() {
   const blogPosts = use(
@@ -19,7 +21,10 @@ export function RecentPosts() {
       <SectionTitle title="Posts recentes" category="blog" />
 
       <div className="flex items-center flex-wrap mx-auto gap-3 justify-center">
-        <Suspense fallback={<LoadingPosts />}>
+        <AsyncBoundary
+          loadingFallback={<LoadingPosts />}
+          errorFallback={<ErrorPosts />}
+        >
           {blogPosts.map((post, index) => (
             <PostCard
               title={post.title!}
@@ -29,7 +34,7 @@ export function RecentPosts() {
               key={index}
             />
           ))}
-        </Suspense>
+        </AsyncBoundary>
       </div>
 
       <a
