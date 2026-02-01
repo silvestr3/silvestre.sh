@@ -6,7 +6,6 @@ import { RecentPosts } from "./components/recent-posts";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <Separator />
       <RecentPosts />
