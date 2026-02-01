@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-
 export function IllustrationProgramming() {
   return (
     <svg
@@ -420,17 +416,10 @@ export function IllustrationProgramming() {
             transform="translate(-388.967 -394.4)"
             fill="#090814"
           />
-          <motion.g
+          <g
             style={{
               transformOrigin: "156.947px 76.312px",
               perspective: 500,
-            }}
-            animate={{ rotateY: [180, 180, 360, 360, 540] }}
-            transition={{
-              duration: 12,
-              times: [0, 0.45, 0.5, 0.95, 1],
-              ease: ["linear", "easeInOut", "linear", "easeInOut"],
-              repeat: Infinity,
             }}
           >
             <ellipse
@@ -446,7 +435,7 @@ export function IllustrationProgramming() {
               transform="translate(-444.113 -365.348)"
               fill="#090814"
             />
-          </motion.g>
+          </g>
         </g>
         <g transform="translate(152.761 713.325)">
           <path
