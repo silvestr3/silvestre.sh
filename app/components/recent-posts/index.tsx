@@ -7,6 +7,7 @@ import { use } from "react";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
+import { socialLinks } from "@/util/social-links";
 
 export function RecentPosts() {
   const blogPosts = use(
@@ -38,7 +39,7 @@ export function RecentPosts() {
       </div>
 
       <a
-        href="https://medium.com/@fellipe.silvestre"
+        href={socialLinks.medium}
         target="_blank"
         className="flex items-center gap-2 text-muted hover:text-primary font-medium mx-auto mt-10 w-fit group transition-all duration-200"
       >

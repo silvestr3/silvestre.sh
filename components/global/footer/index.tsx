@@ -1,7 +1,8 @@
-const socialLinks = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Twitter", href: "https://twitter.com" },
+import { socialLinks } from "@/util/social-links";
+
+const socialLinksArray = [
+  { label: "GitHub", href: socialLinks.github },
+  { label: "LinkedIn", href: socialLinks.linkedin },
 ];
 
 export function Footer() {
@@ -14,7 +15,7 @@ export function Footer() {
 
         <nav>
           <ul className="flex gap-6">
-            {socialLinks.map((link) => (
+            {socialLinksArray.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}

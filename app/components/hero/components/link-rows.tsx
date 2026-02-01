@@ -4,17 +4,18 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { socialLinks } from "@/util/social-links";
 import { Github, Linkedin } from "lucide-react";
 
 export function LinkRow() {
   const links = [
     {
-      href: "https://github.com/silvestr3",
+      href: socialLinks.github,
       Icon: Github,
       tooltip: "GitHub",
     },
     {
-      href: "https://linkedin.com/in/fellipe-silvestre",
+      href: socialLinks.linkedin,
       Icon: Linkedin,
       tooltip: "LinkedIn",
     },
