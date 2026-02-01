@@ -425,7 +425,7 @@ export function IllustrationProgramming() {
               transformOrigin: "156.947px 76.312px",
               perspective: 500,
             }}
-            animate={{ rotateY: [180, 180, 360, 360, 540] }}
+            animate={{ rotateY: [0, 0, 180, 180, 360] }}
             transition={{
               duration: 12,
               times: [0, 0.45, 0.5, 0.95, 1],
