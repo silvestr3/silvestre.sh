@@ -1,10 +1,10 @@
-import { SectionTitle } from "@/components/global/section-title";
+import { SectionTitle } from "@/components/shared/section-title";
 import { ArrowRight } from "lucide-react";
 import { PostCard } from "./components/post-card";
-import { SectionWrapper } from "@/components/global/section-wrapper";
+import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { blogApi } from "@/lib/api";
 import { use } from "react";
-import { AsyncBoundary } from "@/components/global/async-boundary";
+import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
 
