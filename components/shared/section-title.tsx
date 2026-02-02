@@ -13,7 +13,9 @@ export function SectionTitle({
   description,
 }: SectionTitleProps) {
   return (
-    <div className={cn("mb-12", description ? "mt-16" : "mt-24")}>
+    <div
+      className={cn("mb-12", description ? "lg:mt-16 mt-8" : "lg:mt-24 mt-16")}
+    >
       <TextAnimate
         className="text-primary uppercase font-medium tracking-wide text-sm block"
         as={"span"}

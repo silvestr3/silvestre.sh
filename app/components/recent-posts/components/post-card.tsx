@@ -35,7 +35,7 @@ export function PostCard(post: PostCardProps) {
   return (
     <Card
       onClick={handleOpenPost}
-      className="min-h-90 max-h-90 shrink group relative mx-auto w-full max-w-sm pt-0 cursor-pointer hover:shadow-xl hover:-translate-y-2 hover:border-primary/50 transition-all duration-200"
+      className="min-h-90 max-h-90 shrink group relative w-90 max-w-sm pt-0 cursor-pointer hover:shadow-xl hover:-translate-y-2 hover:border-primary/50 transition-all duration-200"
     >
       <div className="absolute inset-0 z-30 aspect-video " />
       <img
