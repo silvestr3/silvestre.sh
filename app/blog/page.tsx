@@ -25,7 +25,7 @@ export default async function BlogPage({
       <SectionTitle
         category="blog"
         title="Javascript Compilado"
-        description="Compartilhando conhecimentos variados sobre o ecossistema Javascript baseado em vivências reais no mercado"
+        description="Compartilhando conhecimentos variados sobre o ecossistema Javascript baseado em vivências reais por aí"
       />
       <AsyncBoundary
         loadingFallback={<LoadingPosts />}

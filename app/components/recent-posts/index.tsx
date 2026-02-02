@@ -7,7 +7,6 @@ import { use } from "react";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
-import { socialLinks } from "@/util/social-links";
 import Link from "next/link";
 
 export function RecentPosts() {
