@@ -1,13 +1,19 @@
+import { cn } from "@/lib/utils";
 import { TextAnimate } from "../ui/text-animate";
 
 interface SectionTitleProps {
   category: string;
   title: string;
+  description?: string;
 }
 
-export function SectionTitle({ category, title }: SectionTitleProps) {
+export function SectionTitle({
+  category,
+  title,
+  description,
+}: SectionTitleProps) {
   return (
-    <div className="mt-24 mb-12">
+    <div className={cn("mb-12", description ? "mt-16" : "mt-24")}>
       <TextAnimate
         className="text-primary uppercase font-medium tracking-wide text-sm block"
         as={"span"}
@@ -25,6 +31,7 @@ export function SectionTitle({ category, title }: SectionTitleProps) {
       >
         {title}
       </TextAnimate>
+      {description && <span className="text-muted text-lg">{description}</span>}
     </div>
   );
 }
