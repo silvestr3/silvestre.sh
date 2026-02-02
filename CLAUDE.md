@@ -34,9 +34,43 @@ There is no test suite configured in this project.
 
 `@/` maps to the project root. So `@/components/ui/button` resolves to `components/ui/button.tsx`, `@/lib/api` to `lib/api.ts`, etc.
 
+### Async data fetching
+
+All async data fetching uses `React.use()` paired with the `AsyncBoundary` wrapper (`components/shared/async-boundary.tsx`), which combines `<Suspense>` (loading) and `<ErrorBoundary>` (errors) into a single boundary.
+
+**The rule:** `use()` must be called inside a component that is rendered *as a child* of `<AsyncBoundary>`, never above it. Both `Suspense` and `ErrorBoundary` only catch signals thrown by their descendants. Calling `use()` in the same component that renders `<AsyncBoundary>` means the suspension/error propagates past the boundary and crashes the page.
+
+The correct pattern:
+
+1. The parent creates the promise (without awaiting) and passes it as a prop.
+2. A child component receives the promise, calls `use()` on it, and renders the result.
+3. That child is rendered inside `<AsyncBoundary>`.
+
+```tsx
+// Parent — creates the promise, does NOT call use()
+export default function Page() {
+  return (
+    <AsyncBoundary
+      loadingFallback={<Loading />}
+      errorFallback={<Error />}
+    >
+      <Child dataPromise={fetchData()} />
+    </AsyncBoundary>
+  );
+}
+
+// Child — calls use() on the promise, rendered inside the boundary
+function Child({ dataPromise }) {
+  const data = use(dataPromise);
+  return <div>{data.title}</div>;
+}
+```
+
+Examples in the codebase: `BlogPostList` in `app/blog/components/blog-posts.tsx`, `BlogPost` in `app/blog/components/blog-post.tsx`, and `PostList` in `app/components/recent-posts/components/post-list.tsx`.
+
 ### Blog / CMS integration
 
-Blog posts are fetched server-side from a **Ghost CMS** instance at `https://blog.silvestre.sh` using `@tryghost/content-api`. The client is initialized in `lib/api.ts`. The `RecentPosts` component uses React's `use()` hook to stream the Ghost API promise directly, wrapped in `<Suspense>` for loading states.
+Blog posts are fetched server-side from a **Ghost CMS** instance at `https://blog.silvestre.sh` using `@tryghost/content-api`. The client is initialized in `lib/api.ts`.
 
 ### Styling
 
