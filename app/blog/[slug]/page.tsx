@@ -7,6 +7,8 @@ import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BlogPost } from "./components/blog-post";
+import { PostLoading } from "./components/post-loading";
+import { PostNotFound } from "./components/post-not-found";
 
 export default function BlogPostPage({
   params,
@@ -26,12 +28,8 @@ export default function BlogPostPage({
       </Link>
 
       <AsyncBoundary
-        loadingFallback={<Skeleton className="h-96 w-full max-w-3xl mx-auto" />}
-        errorFallback={
-          <p className="text-sm text-red-400 text-center max-w-3xl mx-auto">
-            Não foi possível carregar o post.
-          </p>
-        }
+        loadingFallback={<PostLoading />}
+        errorFallback={<PostNotFound />}
       >
         <BlogPost postPromise={blogApi.posts.read({ slug })} />
       </AsyncBoundary>
