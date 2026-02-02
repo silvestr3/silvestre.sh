@@ -1,22 +1,14 @@
 import { SectionTitle } from "@/components/shared/section-title";
 import { ArrowRight } from "lucide-react";
-import { PostCard } from "./components/post-card";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { blogApi } from "@/lib/api";
-import { use } from "react";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
+import { PostList } from "./components/post-list";
 import Link from "next/link";
 
 export function RecentPosts() {
-  const blogPosts = use(
-    blogApi.posts.browse({
-      limit: 3,
-      fields: ["title", "feature_image", "published_at", "slug"],
-    }),
-  );
-
   return (
     <SectionWrapper>
       <SectionTitle title="Posts recentes" category="blog" />
@@ -26,15 +18,12 @@ export function RecentPosts() {
           loadingFallback={<LoadingPosts />}
           errorFallback={<ErrorPosts />}
         >
-          {blogPosts.map((post, index) => (
-            <PostCard
-              title={post.title!}
-              feature_image={post.feature_image!}
-              published_at={post.published_at!}
-              slug={post.slug}
-              key={index}
-            />
-          ))}
+          <PostList
+            postsPromise={blogApi.posts.browse({
+              limit: 3,
+              fields: ["title", "feature_image", "published_at", "slug"],
+            })}
+          />
         </AsyncBoundary>
       </div>
 
