@@ -1,22 +1,12 @@
 import { use } from "react";
-
-import { blogApi } from "@/lib/api";
 import { PostCard } from "@/app/components/recent-posts/components/post-card";
-
 import { Pagination } from "./pagination";
+import { getRecentPosts } from "@/service/blog/get-recent-posts";
 
 export const POSTS_PER_PAGE = 10;
 
-type Posts = Awaited<ReturnType<typeof blogApi.posts.browse>>;
-
-export function BlogPostList({
-  postsPromise,
-  page,
-}: {
-  postsPromise: Promise<Posts>;
-  page: number;
-}) {
-  const allPosts = use(postsPromise);
+export function BlogPostList({ page }: { page: number }) {
+  const allPosts = use(getRecentPosts(POSTS_PER_PAGE + 1));
   const hasNextPage = allPosts.length > POSTS_PER_PAGE;
   const posts = allPosts.slice(0, POSTS_PER_PAGE);
 

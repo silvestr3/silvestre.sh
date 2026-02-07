@@ -1,4 +1,3 @@
-import { blogApi } from "@/lib/api";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
@@ -14,12 +13,6 @@ export default async function BlogPage({
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
 
-  const postsPromise = blogApi.posts.browse({
-    limit: POSTS_PER_PAGE + 1,
-    page,
-    fields: ["title", "feature_image", "published_at", "slug"],
-  });
-
   return (
     <SectionWrapper>
       <SectionTitle
@@ -31,7 +24,7 @@ export default async function BlogPage({
         loadingFallback={<LoadingPosts />}
         errorFallback={<ErrorPosts />}
       >
-        <BlogPostList postsPromise={postsPromise} page={page} />
+        <BlogPostList page={page} />
       </AsyncBoundary>
     </SectionWrapper>
   );
