@@ -1,3 +1,4 @@
+import { Logo } from "@/components/shared/logo";
 import { socialLinks } from "@/util/social-links";
 
 const socialLinksArray = [
@@ -9,6 +10,7 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-border">
       <div className="w-[min(100%,1300px)] mx-auto py-6 px-4 md:px-12 lg:px-16 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <Logo />
         <p className="text-muted text-sm">
           © {new Date().getFullYear()} — Todos os direitos reservados
         </p>
