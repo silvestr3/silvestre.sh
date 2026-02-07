@@ -1,5 +1,4 @@
 import { Hero } from "@/app/components/hero";
-import { Navbar } from "../components/global/navbar";
 import { Separator } from "@/components/ui/separator";
 import { RecentPosts } from "./components/recent-posts";
 

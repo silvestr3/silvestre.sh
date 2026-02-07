@@ -1,7 +1,6 @@
 import { SectionTitle } from "@/components/shared/section-title";
 import { ArrowRight } from "lucide-react";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
-import { blogApi } from "@/lib/api";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
@@ -18,12 +17,7 @@ export function RecentPosts() {
           loadingFallback={<LoadingPosts />}
           errorFallback={<ErrorPosts />}
         >
-          <PostList
-            postsPromise={blogApi.posts.browse({
-              limit: 3,
-              fields: ["title", "feature_image", "published_at", "slug"],
-            })}
-          />
+          <PostList />
         </AsyncBoundary>
       </div>
 

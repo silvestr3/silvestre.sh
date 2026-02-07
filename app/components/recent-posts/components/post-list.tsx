@@ -1,12 +1,15 @@
-import { use } from "react";
+import { use, cache } from "react";
 
 import { blogApi } from "@/lib/api";
 import { PostCard } from "./post-card";
 
-type Posts = Awaited<ReturnType<typeof blogApi.posts.browse>>;
-
-export function PostList({ postsPromise }: { postsPromise: Promise<Posts> }) {
-  const blogPosts = use(postsPromise);
+export function PostList() {
+  const blogPosts = use(
+    blogApi.posts.browse({
+      limit: 3,
+      fields: ["title", "feature_image", "published_at", "slug"],
+    }),
+  );
 
   return blogPosts.map((post, index) => (
     <PostCard
