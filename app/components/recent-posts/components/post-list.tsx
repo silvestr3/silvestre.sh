@@ -1,15 +1,9 @@
-import { use, cache } from "react";
-
-import { blogApi } from "@/lib/api";
+import { use } from "react";
 import { PostCard } from "./post-card";
+import { getRecentPosts } from "@/service/blog/get-recent-posts";
 
 export function PostList() {
-  const blogPosts = use(
-    blogApi.posts.browse({
-      limit: 3,
-      fields: ["title", "feature_image", "published_at", "slug"],
-    }),
-  );
+  const blogPosts = use(getRecentPosts(3));
 
   return blogPosts.map((post, index) => (
     <PostCard
