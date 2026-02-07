@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { UnderlineLink } from "./components/underline-link";
 import { Logo } from "@/components/shared/logo";
 
@@ -21,13 +24,23 @@ export function Navbar() {
     },
   ];
 
+  const blogItems = [
+    {
+      label: "Início",
+      href: "/",
+    },
+  ];
+
+  const pathname = usePathname();
+  const items = pathname === "/blog" ? blogItems : navItems;
+
   return (
     <header className="w-full bg-background fixed top-0 left-0 right-0 z-10">
       <div className="w-[min(100%,1024px)] mx-auto py-6 px-4 flex justify-between items-baseline">
         <Logo />
         <nav>
           <ul className="flex gap-6">
-            {navItems.map((item, index) => (
+            {items.map((item, index) => (
               <li key={index}>
                 <UnderlineLink href={item.href} label={item.label} />
               </li>
