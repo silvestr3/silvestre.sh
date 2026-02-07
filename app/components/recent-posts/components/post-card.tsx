@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+import { formatDate } from "@/util/date-utils";
 import { Calendar } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -22,14 +23,6 @@ export function PostCard(post: PostCardProps) {
 
   function handleOpenPost() {
     navigate.push(`/blog/${post.slug}`);
-  }
-
-  function formatDate(date: Date) {
-    return Intl.DateTimeFormat("pt-BR", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    }).format(date);
   }
 
   return (

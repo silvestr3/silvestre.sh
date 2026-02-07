@@ -1,14 +1,7 @@
 import { use } from "react";
 import { Calendar } from "lucide-react";
 import { readPost } from "@/service/blog/read-post";
-
-function formatDate(date: Date) {
-  return Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  }).format(date);
-}
+import { formatDate } from "@/util/date-utils";
 
 export function BlogPost({ slug }: { slug: string }) {
   const post = use(readPost(slug));
