@@ -32,7 +32,7 @@ export function Navbar() {
   ];
 
   const pathname = usePathname();
-  const items = pathname === "/blog" ? blogItems : navItems;
+  const items = pathname.includes("/blog") ? blogItems : navItems;
 
   return (
     <header className="w-full bg-background fixed top-0 left-0 right-0 z-10">
