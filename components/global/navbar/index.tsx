@@ -35,7 +35,7 @@ export function Navbar() {
   const items = pathname.includes("/blog") ? blogItems : navItems;
 
   return (
-    <header className="w-full bg-background fixed top-0 left-0 right-0 z-10">
+    <header className="w-full bg-background fixed top-0 left-0 right-0 z-100">
       <div className="w-[min(100%,1024px)] mx-auto py-6 px-4 flex justify-between items-baseline">
         <Logo />
         <nav>
