@@ -1,9 +1,6 @@
 import { use } from "react";
 import { Calendar } from "lucide-react";
-
-import { blogApi } from "@/lib/api";
-
-type Post = Awaited<ReturnType<typeof blogApi.posts.read>>;
+import { readPost } from "@/service/blog/read-post";
 
 function formatDate(date: Date) {
   return Intl.DateTimeFormat("pt-BR", {
@@ -13,8 +10,8 @@ function formatDate(date: Date) {
   }).format(date);
 }
 
-export function BlogPost({ postPromise }: { postPromise: Promise<Post> }) {
-  const post = use(postPromise);
+export function BlogPost({ slug }: { slug: string }) {
+  const post = use(readPost(slug));
 
   return (
     <article className="max-w-3xl mx-auto">
@@ -33,10 +30,7 @@ export function BlogPost({ postPromise }: { postPromise: Promise<Post> }) {
         {formatDate(new Date(post.published_at!))}
       </span>
 
-      <div
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: post.html! }}
-      />
+      <div className="prose" dangerouslySetInnerHTML={{ __html: post.html! }} />
     </article>
   );
 }

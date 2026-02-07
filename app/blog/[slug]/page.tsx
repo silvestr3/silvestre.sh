@@ -2,10 +2,8 @@ import { use } from "react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-import { blogApi } from "@/lib/api";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
-import { Skeleton } from "@/components/ui/skeleton";
 import { BlogPost } from "./components/blog-post";
 import { PostLoading } from "./components/post-loading";
 import { PostNotFound } from "./components/post-not-found";
@@ -31,7 +29,7 @@ export default function BlogPostPage({
         loadingFallback={<PostLoading />}
         errorFallback={<PostNotFound />}
       >
-        <BlogPost postPromise={blogApi.posts.read({ slug })} />
+        <BlogPost slug={slug} />
       </AsyncBoundary>
     </SectionWrapper>
   );
