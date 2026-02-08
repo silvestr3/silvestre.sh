@@ -5,7 +5,16 @@ export const getRecentPosts = cache(async (limit: number) => {
   try {
     const response = await blogApi.posts.browse({
       limit,
-      fields: ["title", "feature_image", "published_at", "slug"],
+      fields: [
+        "title",
+        "feature_image",
+        "feature_image_alt",
+        "published_at",
+        "slug",
+        "excerpt",
+        "custom_excerpt",
+        "meta_description",
+      ],
     });
 
     return response;

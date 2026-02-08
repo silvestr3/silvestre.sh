@@ -1,9 +1,32 @@
+import type { Metadata } from "next";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
 import { BlogPostList, POSTS_PER_PAGE } from "./components/blog-posts";
 import { LoadingPosts } from "./components/loading-posts";
 import { ErrorPosts } from "./components/error-posts";
+
+export const metadata: Metadata = {
+  title: "Blog - Javascript Compilado",
+  description:
+    "Compartilhando conhecimentos variados sobre o ecossistema Javascript baseado em vivências reais",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Javascript Compilado - Blog",
+    description:
+      "Compartilhando conhecimentos variados sobre o ecossistema Javascript",
+    url: "/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Javascript Compilado - Blog",
+    description:
+      "Compartilhando conhecimentos variados sobre o ecossistema Javascript",
+  },
+};
 
 export default async function BlogPage({
   searchParams,
