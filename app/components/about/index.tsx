@@ -100,7 +100,7 @@ export function About() {
     <SectionWrapper>
       <SectionTitle category="Sobre" title="Quem sou eu" />
 
-      <Marquee pauseOnHover>
+      <Marquee>
         {techStack.map((tech) => (
           <TechCard
             key={tech.title}

@@ -11,7 +11,7 @@ export function TechCard({ category, title, Icon }: TechCardProps) {
   return (
     <Card className="group relative overflow-hidden transition-all hover:shadow-lg hover:scale-105">
       <CardContent className="flex flex-col items-center justify-center gap-4 px-6 min-h-30">
-        <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20">
+        <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 transition-colors">
           <Icon className="w-8 h-8 text-primary" />
         </div>
 
