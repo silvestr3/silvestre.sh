@@ -4,6 +4,7 @@ import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { Navbar } from "../components/global/navbar";
 import { Footer } from "../components/global/footer";
 import { env } from "@/env";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -54,6 +55,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
+        <Analytics />
         <Footer />
       </body>
     </html>
