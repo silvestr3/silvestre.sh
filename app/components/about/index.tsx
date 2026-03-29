@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { Marquee } from "@/components/ui/marquee";
@@ -17,106 +18,37 @@ import { AntdIcon } from "./icons/antd";
 import { CSSIcon } from "./icons/css";
 import { GitIcon } from "./icons/git";
 
-export function About() {
+export async function About() {
+  const t = await getTranslations("about");
+
   const techStack = [
-    {
-      category: "Everything",
-      title: "Typescript",
-      Icon: TypescriptIcon,
-    },
-    {
-      category: "Frontend",
-      title: "Tailwind",
-      Icon: TailwindIcon,
-    },
-    {
-      category: "Backend",
-      title: "Express",
-      Icon: ExpressIcon,
-    },
-    {
-      category: "Frontend",
-      title: "React",
-      Icon: ReactIcon,
-    },
-    {
-      category: "Backend",
-      title: "Bun",
-      Icon: BunIcon,
-    },
-    {
-      category: "Frontend",
-      title: "CSS",
-      Icon: CSSIcon,
-    },
-    {
-      category: "Version Control",
-      title: "Git",
-      Icon: GitIcon,
-    },
-    {
-      category: "Frontend",
-      title: "Next.js",
-      Icon: NextIcon,
-    },
-    {
-      category: "Backend",
-      title: "NestJS",
-      Icon: NestIcon,
-    },
-    {
-      category: "Everything",
-      title: "Javascript",
-      Icon: JavascriptIcon,
-    },
-    {
-      category: "Frontend",
-      title: "Svelte",
-      Icon: SvelteIcon,
-    },
-    {
-      category: "Backend",
-      title: "Node.js",
-      Icon: NodeIcon,
-    },
-    {
-      category: "Frontend",
-      title: "Ant Design",
-      Icon: AntdIcon,
-    },
-    {
-      category: "Backend",
-      title: "Fastify",
-      Icon: FastifyIcon,
-    },
-    {
-      category: "Mobile",
-      title: "React Native",
-      Icon: ReactIcon,
-    },
+    { category: "Everything", title: "Typescript", Icon: TypescriptIcon },
+    { category: "Frontend", title: "Tailwind", Icon: TailwindIcon },
+    { category: "Backend", title: "Express", Icon: ExpressIcon },
+    { category: "Frontend", title: "React", Icon: ReactIcon },
+    { category: "Backend", title: "Bun", Icon: BunIcon },
+    { category: "Frontend", title: "CSS", Icon: CSSIcon },
+    { category: "Version Control", title: "Git", Icon: GitIcon },
+    { category: "Frontend", title: "Next.js", Icon: NextIcon },
+    { category: "Backend", title: "NestJS", Icon: NestIcon },
+    { category: "Everything", title: "Javascript", Icon: JavascriptIcon },
+    { category: "Frontend", title: "Svelte", Icon: SvelteIcon },
+    { category: "Backend", title: "Node.js", Icon: NodeIcon },
+    { category: "Frontend", title: "Ant Design", Icon: AntdIcon },
+    { category: "Backend", title: "Fastify", Icon: FastifyIcon },
+    { category: "Mobile", title: "React Native", Icon: ReactIcon },
   ];
 
   return (
     <SectionWrapper>
-      <SectionTitle category="Sobre" title="Quem sou eu" />
+      <SectionTitle category={t("category")} title={t("title")} />
 
       <div className="flex flex-col md:flex-row gap-10 items-start">
         <div className="bg-muted rounded-2xl aspect-3/4 w-full md:w-64 shrink-0" />
-        <p className="text-muted text-lg leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. Pellentesque
-          habitant morbi tristique senectus et netus et malesuada fames ac
-          turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-          tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        </p>
+        <p className="text-muted text-lg leading-relaxed">{t("body")}</p>
       </div>
 
-      <SectionTitle category="Stack" title="Tecnologias" />
+      <SectionTitle category={t("stackCategory")} title={t("stackTitle")} />
 
       <Marquee>
         {techStack.map((tech) => (

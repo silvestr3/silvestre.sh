@@ -1,35 +1,22 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { UnderlineLink } from "./components/underline-link";
+import { LocaleSwitcher } from "./components/locale-switcher";
 import { Logo } from "@/components/shared/logo";
 
 export function Navbar() {
+  const t = useTranslations("nav");
+
   const navItems = [
-    {
-      label: "Sobre",
-      href: "#about",
-    },
-    {
-      label: "Projetos",
-      href: "#projects",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "Contato",
-      href: "#contact",
-    },
+    { label: t("about"), href: "#about" },
+    { label: t("projects"), href: "#projects" },
+    { label: t("blog"), href: "/blog" },
+    { label: t("contact"), href: "#contact" },
   ];
 
-  const blogItems = [
-    {
-      label: "Início",
-      href: "/",
-    },
-  ];
+  const blogItems = [{ label: t("home"), href: "/" }];
 
   const pathname = usePathname();
   const items = pathname.includes("/blog") ? blogItems : navItems;
@@ -38,7 +25,7 @@ export function Navbar() {
     <header className="w-full bg-background fixed top-0 left-0 right-0 z-100">
       <div className="w-[min(100%,1024px)] mx-auto py-6 px-4 flex justify-between items-baseline">
         <Logo />
-        <nav>
+        <nav className="flex items-baseline gap-6">
           <ul className="flex gap-6">
             {items.map((item, index) => (
               <li key={index}>
@@ -46,6 +33,7 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <LocaleSwitcher />
         </nav>
       </div>
     </header>

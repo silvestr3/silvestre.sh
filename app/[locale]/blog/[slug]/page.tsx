@@ -1,13 +1,12 @@
-import { use } from "react";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
-import { BlogPost } from "./components/blog-post";
-import { PostLoading } from "./components/post-loading";
-import { PostNotFound } from "./components/post-not-found";
+import { BlogPost } from "@/app/blog/[slug]/components/blog-post";
+import { PostLoading } from "@/app/blog/[slug]/components/post-loading";
+import { PostNotFound } from "@/app/blog/[slug]/components/post-not-found";
 import { readPost } from "@/service/blog/read-post";
 import { buildPostMetadata } from "@/lib/seo";
 
@@ -29,12 +28,13 @@ export async function generateMetadata({
   }
 }
 
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
+  const { slug } = await params;
+  const t = await getTranslations("blog");
 
   return (
     <SectionWrapper>
@@ -43,14 +43,14 @@ export default function BlogPostPage({
         className="flex items-center gap-2 text-muted hover:text-primary transition-colors duration-200 mb-8"
       >
         <ArrowLeft size={16} />
-        <span>Voltar ao blog</span>
+        <span>{t("backLink")}</span>
       </Link>
 
       <AsyncBoundary
         loadingFallback={<PostLoading />}
         errorFallback={<PostNotFound />}
       >
-        <BlogPost slug={slug} />
+        <BlogPost slug={slug} readingTimeLabel={t("readingTime")} />
       </AsyncBoundary>
     </SectionWrapper>
   );

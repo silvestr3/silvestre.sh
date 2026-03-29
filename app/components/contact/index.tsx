@@ -1,26 +1,23 @@
+import { getTranslations } from "next-intl/server";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { socialLinks } from "@/util/social-links";
 import { Linkedin, Mail } from "lucide-react";
 
-export function Contact() {
+export async function Contact() {
+  const t = await getTranslations("contact");
+
   const contactMethods = [
-    {
-      Icon: Mail,
-      link: socialLinks.email,
-    },
-    {
-      Icon: Linkedin,
-      link: socialLinks.linkedin,
-    },
+    { Icon: Mail, link: socialLinks.email },
+    { Icon: Linkedin, link: socialLinks.linkedin },
   ];
 
   return (
     <SectionWrapper>
       <SectionTitle
-        category="Contato"
-        title="Fale comigo"
-        description="Estou sempre aberto para discutir novos projetos, ideias criativas ou oportunidades de colaboração."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
         isCentered
       />
 
