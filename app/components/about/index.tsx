@@ -120,12 +120,7 @@ export function About() {
 
       <Marquee>
         {techStack.map((tech) => (
-          <TechCard
-            key={tech.title}
-            category={tech.category}
-            title={tech.title}
-            Icon={tech.Icon}
-          />
+          <TechCard key={tech.title} title={tech.title} Icon={tech.Icon} />
         ))}
       </Marquee>
     </SectionWrapper>
