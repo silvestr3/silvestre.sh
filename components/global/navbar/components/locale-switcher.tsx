@@ -30,7 +30,7 @@ export function LocaleSwitcher() {
       <DropdownMenuTrigger className="text-muted hover:text-foreground transition-colors cursor-pointer text-lg leading-none focus:outline-none">
         {currentLocale.flag}
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="z-[200]">
+      <DropdownMenuContent align="end" className="z-200">
         {locales.map((l) => (
           <DropdownMenuItem
             key={l.code}

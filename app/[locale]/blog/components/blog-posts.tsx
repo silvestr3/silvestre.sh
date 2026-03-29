@@ -1,5 +1,5 @@
 import { use } from "react";
-import { PostCard } from "@/app/components/recent-posts/components/post-card";
+import { PostCard } from "@/app/[locale]/components/recent-posts/components/post-card";
 import { Pagination } from "./pagination";
 import { getRecentPosts } from "@/service/blog/get-recent-posts";
 

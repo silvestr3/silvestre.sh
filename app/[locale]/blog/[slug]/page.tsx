@@ -4,9 +4,9 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
-import { BlogPost } from "@/app/blog/[slug]/components/blog-post";
-import { PostLoading } from "@/app/blog/[slug]/components/post-loading";
-import { PostNotFound } from "@/app/blog/[slug]/components/post-not-found";
+import { BlogPost } from "./components/blog-post";
+import { PostLoading } from "./components/post-loading";
+import { PostNotFound } from "./components/post-not-found";
 import { readPost } from "@/service/blog/read-post";
 import { buildPostMetadata } from "@/lib/seo";
 

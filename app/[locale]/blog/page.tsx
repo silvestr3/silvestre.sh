@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { AsyncBoundary } from "@/components/shared/async-boundary";
-import { BlogPostList, POSTS_PER_PAGE } from "@/app/blog/components/blog-posts";
-import { LoadingPosts } from "@/app/blog/components/loading-posts";
-import { ErrorPosts } from "@/app/blog/components/error-posts";
+import { BlogPostList, POSTS_PER_PAGE } from "./components/blog-posts";
+import { LoadingPosts } from "./components/loading-posts";
+import { ErrorPosts } from "./components/error-posts";
 
 export { POSTS_PER_PAGE };
 
