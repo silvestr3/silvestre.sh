@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import FlipWords from "@/components/ui/flip-words";
 import { LinkRow } from "./components/link-rows";
@@ -6,7 +6,7 @@ import { IllustrationProgramming } from "./components/illustration-programming";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 export async function Hero() {
-  const t = await getTranslations("hero");
+  const [t, locale] = await Promise.all([getTranslations("hero"), getLocale()]);
 
   return (
     <section className="flex-col-reverse flex lg:flex-row items-center justify-center lg:justify-between min-h-screen w-[min(100%,1600px)] mx-auto items-left p-4 px-4 md:px-12 lg:px-16 font-sans bg-background gap-10">
@@ -21,19 +21,22 @@ export async function Hero() {
             fellipe silvestre
           </TextAnimate>
           <h1 className="text-foreground text-5xl font-bold flex flex-col lg:flex-row md:flex-row flex-wrap lg:items-center gap-3">
-            {t("role")}
-            <FlipWords
-              duration={3000}
-              className="text-inherit p-0 m-0"
-              words={[
-                "Front end",
-                "Javascript",
-                "Typescript",
-                "React",
-                "React Native",
-                "Node",
-              ]}
-            />
+            {[
+              <span key="role">{t("role")}</span>,
+              <FlipWords
+                key="flip"
+                duration={3000}
+                className="text-inherit p-0 m-0"
+                words={[
+                  "Frontend",
+                  "Javascript",
+                  "Typescript",
+                  "React",
+                  "React Native",
+                  "Node",
+                ]}
+              />,
+            ].sort(() => (locale === "pt" ? 1 : -1))}
           </h1>
           <h2 className="text-muted text-lg">{t("subtitle")}</h2>
         </div>
