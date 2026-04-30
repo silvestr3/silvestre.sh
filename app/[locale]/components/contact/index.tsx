@@ -13,7 +13,7 @@ export async function Contact() {
   ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="contact">
       <SectionTitle
         category={t("category")}
         title={t("title")}

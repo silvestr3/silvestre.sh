@@ -12,7 +12,7 @@ export async function RecentPosts() {
   const t = await getTranslations("recentPosts");
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="blog">
       <SectionTitle title={t("title")} category="blog" />
 
       <div className="flex items-center flex-wrap mx-auto gap-3 justify-center">

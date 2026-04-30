@@ -10,9 +10,8 @@ export function Navbar() {
   const t = useTranslations("nav");
 
   const navItems = [
+    { label: t("blog"), href: "#blog" },
     { label: t("about"), href: "#about" },
-    { label: t("projects"), href: "#projects" },
-    { label: t("blog"), href: "/blog" },
     { label: t("contact"), href: "#contact" },
   ];
 

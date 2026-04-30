@@ -41,7 +41,7 @@ export async function About() {
   ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="about">
       <SectionTitle category={t("category")} title={t("title")} />
 
       <div className="flex flex-col md:flex-row gap-10 items-start">
