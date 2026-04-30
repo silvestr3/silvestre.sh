@@ -5,7 +5,12 @@ import { formatDate } from "@/util/date-utils";
 import { StructuredData } from "@/components/seo/structured-data";
 import { generatePostStructuredData } from "@/lib/seo";
 
-export function BlogPost({ slug }: { slug: string }) {
+interface BlogPostProps {
+  slug: string;
+  readingTimeLabel: string;
+}
+
+export function BlogPost({ slug, readingTimeLabel }: BlogPostProps) {
   const post = use(readPost(slug));
   const structuredData = generatePostStructuredData(post);
 
@@ -31,7 +36,9 @@ export function BlogPost({ slug }: { slug: string }) {
           {post.reading_time && (
             <>
               <span>•</span>
-              <span>{post.reading_time} min de leitura</span>
+              <span>
+                {post.reading_time} {readingTimeLabel}
+              </span>
             </>
           )}
         </span>

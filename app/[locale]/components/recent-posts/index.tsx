@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { SectionTitle } from "@/components/shared/section-title";
 import { ArrowRight } from "lucide-react";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
@@ -7,10 +8,12 @@ import { ErrorPosts } from "./components/error-posts";
 import { PostList } from "./components/post-list";
 import Link from "next/link";
 
-export function RecentPosts() {
+export async function RecentPosts() {
+  const t = await getTranslations("recentPosts");
+
   return (
     <SectionWrapper>
-      <SectionTitle title="Posts recentes" category="blog" />
+      <SectionTitle title={t("title")} category="blog" />
 
       <div className="flex items-center flex-wrap mx-auto gap-3 justify-center">
         <AsyncBoundary
@@ -25,7 +28,7 @@ export function RecentPosts() {
         href={"/blog"}
         className="flex items-center gap-2 text-muted hover:text-primary font-medium mx-auto mt-10 w-fit group transition-all duration-200"
       >
-        <span>Ver todos os posts no blog</span>
+        <span>{t("viewAll")}</span>
         <ArrowRight className="group-hover:translate-x-1 transition-all duration-200" />
       </Link>
     </SectionWrapper>

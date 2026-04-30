@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "blog": "Blog",
+    "contact": "Contato",
+    "home": "Início"
+  },
+  "hero": {
+    "role": "Desenvolvedor",
+    "subtitle": "Da interface à runtime",
+    "cta": "Ver projetos"
+  },
+  "about": {
+    "category": "Sobre",
+    "title": "Quem sou eu",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.",
+    "stackCategory": "Stack",
+    "stackTitle": "Tecnologias"
+  },
+  "contact": {
+    "category": "Contato",
+    "title": "Fale comigo",
+    "description": "Estou sempre aberto para discutir novos projetos, ideias criativas ou oportunidades de colaboração."
+  },
+  "recentPosts": {
+    "title": "Posts recentes",
+    "viewAll": "Ver todos os posts no blog"
+  },
+  "blog": {
+    "category": "blog",
+    "title": "Javascript Compilado",
+    "description": "Compartilhando conhecimentos variados sobre o ecossistema Javascript baseado em vivências reais por aí",
+    "backLink": "Voltar ao blog",
+    "errorPosts": "Não foi possível carregar os posts.",
+    "postNotFound": "Artigo não encontrado.",
+    "paginationPrev": "Anterior",
+    "paginationNext": "Próximo",
+    "paginationPage": "Página {page}",
+    "readingTime": "min de leitura"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados"
+  },
+  "notFound": {
+    "title": "Esta página não existe",
+    "backLink": "Voltar para a página inicial"
+  },
+  "metadata": {
+    "title": "Fellipe Silvestre - Javascript Developer",
+    "description": "Portfolio e blog de Fellipe Silvestre sobre o ecossistema Javascript",
+    "blogTitle": "Blog - Javascript Compilado",
+    "blogDescription": "Compartilhando conhecimentos variados sobre o ecossistema Javascript baseado em vivências reais"
+  }
+}

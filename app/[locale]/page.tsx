@@ -1,8 +1,8 @@
-import { Hero } from "@/app/components/hero";
+import { Hero } from "@/app/[locale]/components/hero";
 import { Separator } from "@/components/ui/separator";
-import { RecentPosts } from "./components/recent-posts";
-import { Contact } from "./components/contact";
-import { About } from "./components/about";
+import { RecentPosts } from "@/app/[locale]/components/recent-posts";
+import { Contact } from "@/app/[locale]/components/contact";
+import { About } from "@/app/[locale]/components/about";
 
 export default function Home() {
   return (
