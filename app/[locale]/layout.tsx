@@ -9,6 +9,7 @@ import { Footer } from "@/components/global/footer";
 import { env } from "@/env";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import NextTopLoader from "nextjs-toploader";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -81,6 +82,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
+          <NextTopLoader crawl color="#ee5e2f" />
           <main className="flex-1 pt-20">{children}</main>
           <Analytics />
           <SpeedInsights />
