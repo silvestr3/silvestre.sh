@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import { SectionTitle } from "@/components/shared/section-title";
 import { SectionWrapper } from "@/components/shared/section-wrapper";
 import { Marquee } from "@/components/ui/marquee";
@@ -40,12 +41,25 @@ export async function About() {
   ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="about">
       <SectionTitle category={t("category")} title={t("title")} />
 
       <div className="flex flex-col md:flex-row gap-10 items-start">
-        <div className="bg-muted rounded-2xl aspect-3/4 w-full md:w-64 shrink-0" />
-        <p className="text-muted text-lg leading-relaxed">{t("body")}</p>
+        <div className="relative rounded-2xl aspect-square md:aspect-3/4 w-full md:w-64 shrink-0 overflow-hidden">
+          <Image
+            src="/me2.jpg"
+            alt="Fellipe Silvestre"
+            className="object-cover"
+            fill
+          />
+        </div>
+        <div className="text-muted text-sm lg:text-lg leading-relaxed space-y-4">
+          {t("body")
+            .split("\n\n")
+            .map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+        </div>
       </div>
 
       <SectionTitle category={t("stackCategory")} title={t("stackTitle")} />

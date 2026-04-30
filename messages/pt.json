@@ -9,12 +9,12 @@
   "hero": {
     "role": "Desenvolvedor",
     "subtitle": "Da interface à runtime",
-    "cta": "Ver projetos"
+    "cta": "Ver artigos"
   },
   "about": {
     "category": "Sobre",
     "title": "Quem sou eu",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.",
+    "body": "Iniciei minha carreira em tecnologia trabalhando como Pentester em equipes multinacionais por 3 anos, tendo contato com múltiplas tecnologias e observando práticas de segurança de aplicações web em diversos cenários.\n\nNo entanto, após ter meu primeiro contato com desenvolvimento de software ao criar um sistema PDV para o negócio da minha ex-namorada, percebi que me sentia muito mais realizado com isso do que com projetos de pentest, então decidi fazer uma transição de carreira para atuar na área de desenvolvimento de software.\n\nAtualmente trabalho como Desenvolvedor Frontend, traduzindo necessidades de negócio em funcionalidades, focando na experiência do usuário e resolvendo problemas reais. Gosto do aspecto criativo de dar vida aos designs e da satisfação de ver usuários interagindo com interfaces que construí. Meu trabalho envolve colaborar de perto com designers e desenvolvedores backend para criar aplicações responsivas e fluidas que os usuários adoram.\n\nMeu objetivo de longo prazo como desenvolvedor é me tornar especialista na stack Javascript, desde o frontend no navegador, até o backend no servidor, e ser referência de ponta a ponta neste universo.",
     "stackCategory": "Stack",
     "stackTitle": "Tecnologias"
   },

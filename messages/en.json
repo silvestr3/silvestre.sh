@@ -9,12 +9,12 @@
   "hero": {
     "role": "Developer",
     "subtitle": "From interface to runtime",
-    "cta": "View projects"
+    "cta": "View articles"
   },
   "about": {
     "category": "About",
     "title": "Who I am",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.",
+    "body": "I started my career in technology working as a Pentester on multinational teams for 3 years, having exposure to multiple technologies and observing web application security practices across diverse scenarios.\n\nHowever, after my first contact with software development while creating a POS system for my ex-girlfriend's business, I realized I felt much more fulfilled with that than with pentest projects, so I decided to make a career transition to work in software development.\n\nI currently work as a Frontend Developer, translating business needs into features, focusing on user experience and solving real problems. I enjoy the creative aspect of bringing designs to life and the satisfaction of seeing users interacting with interfaces I've built. My work involves collaborating closely with designers and backend developers to create responsive and fluid applications that users love.\n\nMy long-term goal as a developer is to become an expert in the Javascript stack, from frontend in the browser to backend on the server, and to be a go-to reference end-to-end in this space.",
     "stackCategory": "Stack",
     "stackTitle": "Technologies"
   },
