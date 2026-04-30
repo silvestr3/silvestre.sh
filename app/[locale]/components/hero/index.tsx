@@ -4,6 +4,7 @@ import FlipWords from "@/components/ui/flip-words";
 import { LinkRow } from "./components/link-rows";
 import { IllustrationProgramming } from "./components/illustration-programming";
 import { TextAnimate } from "@/components/ui/text-animate";
+import Link from "next/link";
 
 export async function Hero() {
   const [t, locale] = await Promise.all([getTranslations("hero"), getLocale()]);
@@ -42,7 +43,9 @@ export async function Hero() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button className="mr-6 rounded-lg">{t("cta")}</Button>
+          <Link href="#blog">
+            <Button className="mr-6 rounded-lg">{t("cta")}</Button>
+          </Link>
 
           <LinkRow />
         </div>
