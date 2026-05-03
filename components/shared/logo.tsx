@@ -9,7 +9,7 @@ export function Logo() {
         alt="Silvestre"
         width={64}
         height={64}
-        className="w-12 h-12"
+        className="w-6 h-6 lg:w-12 lg:h-12"
         priority
       />
     </Link>
