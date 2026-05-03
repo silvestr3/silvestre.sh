@@ -62,12 +62,7 @@ export function Navbar() {
             showClose={false}
             className="w-70 gap-8 sm:w-[320px]"
           >
-            <SheetHeader className="pr-10">
-              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-              <div className="flex items-center justify-between gap-4">
-                <Logo />
-              </div>
-            </SheetHeader>
+            <SheetTitle className="sr-only">Navigation menu</SheetTitle>
             <div className="flex flex-col gap-8">
               <div className="flex justify-between">
                 <LocaleSwitcher />
