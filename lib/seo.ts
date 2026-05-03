@@ -6,11 +6,25 @@ import { env } from "@/env";
  * Convert a relative path to an absolute URL
  */
 export function getAbsoluteUrl(path: string): string {
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+
   const baseUrl = env.NEXT_PUBLIC_SITE_URL;
   // Remove trailing slash from baseUrl and leading slash from path if present
   const cleanBase = baseUrl.replace(/\/$/, "");
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${cleanBase}${cleanPath}`;
+}
+
+function getLocalizedPath(path: string, locale: "pt" | "en" = "pt"): string {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (locale === "en") {
+    return `/en${cleanPath}`;
+  }
+
+  return cleanPath;
 }
 
 /**
@@ -21,44 +35,56 @@ export function buildPostMetadata(
   post: PostOrPage,
   locale: "pt" | "en" = "pt"
 ): Metadata {
-  const postUrl = getAbsoluteUrl(`/blog/${post.slug}`);
+  const postPath = getLocalizedPath(`/blog/${post.slug}`, locale);
+  const postUrl = getAbsoluteUrl(postPath);
 
-  const title = post.meta_title || post.title || "Untitled Post";
+  const socialTitle =
+    post.og_title ||
+    post.twitter_title ||
+    post.meta_title ||
+    post.title ||
+    "Untitled Post";
 
   const description =
+    post.og_description ||
+    post.twitter_description ||
     post.meta_description ||
-    post.excerpt ||
     post.custom_excerpt ||
+    post.excerpt ||
     "Read this blog post";
 
-  const ogImage = post.og_image || post.feature_image;
+  const fallbackImage = getAbsoluteUrl(
+    getLocalizedPath("/opengraph-image", locale)
+  );
+
+  const ogImage = post.og_image || post.feature_image || fallbackImage;
 
   const twitterImage =
-    post.twitter_image || post.og_image || post.feature_image;
+    post.twitter_image || post.og_image || post.feature_image || fallbackImage;
 
   const ogLocale = locale === "pt" ? "pt_BR" : "en_US";
 
   return {
-    title,
+    title: {
+      absolute: socialTitle,
+    },
     description,
     alternates: {
       canonical: post.canonical_url || postUrl,
     },
     openGraph: {
       type: "article",
-      title: post.og_title || title,
-      description: post.og_description || description,
+      title: socialTitle,
+      description,
       url: postUrl,
       siteName: "Silvestre",
       locale: ogLocale,
-      images: ogImage
-        ? [
-            {
-              url: ogImage,
-              alt: post.feature_image_alt || post.title || "Blog post image",
-            },
-          ]
-        : [],
+      images: [
+        {
+          url: ogImage,
+          alt: post.feature_image_alt || post.title || "Blog post image",
+        },
+      ],
       publishedTime: post.published_at || undefined,
       modifiedTime: post.updated_at || undefined,
       authors: post.authors?.map((a) => a.name).filter(Boolean) as
@@ -70,10 +96,9 @@ export function buildPostMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title: post.twitter_title || post.og_title || title,
-      description:
-        post.twitter_description || post.og_description || description,
-      images: twitterImage ? [twitterImage] : [],
+      title: post.twitter_title || socialTitle,
+      description,
+      images: [twitterImage],
     },
   };
 }
@@ -117,7 +142,8 @@ export function generatePostStructuredData(
   post: PostOrPage,
   locale: "pt" | "en" = "pt"
 ) {
-  const postUrl = getAbsoluteUrl(`/blog/${post.slug}`);
+  const postPath = getLocalizedPath(`/blog/${post.slug}`, locale);
+  const postUrl = getAbsoluteUrl(postPath);
 
   const author = post.primary_author || post.authors?.[0];
 
@@ -142,7 +168,7 @@ export function generatePostStructuredData(
       name: "Silvestre",
       logo: {
         "@type": "ImageObject",
-        url: getAbsoluteUrl("/logo.png"),
+        url: getAbsoluteUrl("/icon.png"),
       },
     },
     mainEntityOfPage: {
