@@ -10,16 +10,21 @@ import { PostNotFound } from "./components/post-not-found";
 import { readPost } from "@/service/blog/read-post";
 import { buildPostMetadata } from "@/lib/seo";
 
+interface BlogPostPageParams {
+  locale: string;
+  slug: string;
+}
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<BlogPostPageParams>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
 
   try {
     const post = await readPost(slug);
-    return buildPostMetadata(post);
+    return buildPostMetadata(post, locale as "pt" | "en");
   } catch {
     return {
       title: "Post Not Found",
@@ -31,9 +36,9 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<BlogPostPageParams>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations("blog");
 
   return (
@@ -50,7 +55,7 @@ export default async function BlogPostPage({
         loadingFallback={<PostLoading />}
         errorFallback={<PostNotFound />}
       >
-        <BlogPost slug={slug} readingTimeLabel={t("readingTime")} />
+        <BlogPost slug={slug} locale={locale as "pt" | "en"} readingTimeLabel={t("readingTime")} />
       </AsyncBoundary>
     </SectionWrapper>
   );

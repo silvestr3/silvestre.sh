@@ -17,25 +17,26 @@ export function getAbsoluteUrl(path: string): string {
  * Build metadata for a blog post from Ghost CMS data
  * Maps Ghost SEO fields to Next.js Metadata API with fallback chain
  */
-export function buildPostMetadata(post: PostOrPage): Metadata {
+export function buildPostMetadata(
+  post: PostOrPage,
+  locale: "pt" | "en" = "pt"
+): Metadata {
   const postUrl = getAbsoluteUrl(`/blog/${post.slug}`);
 
-  // Title with fallback chain
   const title = post.meta_title || post.title || "Untitled Post";
 
-  // Description with fallback chain
   const description =
     post.meta_description ||
     post.excerpt ||
     post.custom_excerpt ||
     "Read this blog post";
 
-  // Open Graph image with fallback
   const ogImage = post.og_image || post.feature_image;
 
-  // Twitter image with fallback chain
   const twitterImage =
     post.twitter_image || post.og_image || post.feature_image;
+
+  const ogLocale = locale === "pt" ? "pt_BR" : "en_US";
 
   return {
     title,
@@ -49,7 +50,7 @@ export function buildPostMetadata(post: PostOrPage): Metadata {
       description: post.og_description || description,
       url: postUrl,
       siteName: "Silvestre",
-      locale: "pt_BR",
+      locale: ogLocale,
       images: ogImage
         ? [
             {
@@ -112,11 +113,12 @@ export function buildSiteMetadata(): Metadata {
  * Generate structured data (JSON-LD) for a blog post
  * Creates schema.org BlogPosting markup for rich search results
  */
-export function generatePostStructuredData(post: PostOrPage) {
+export function generatePostStructuredData(
+  post: PostOrPage,
+  locale: "pt" | "en" = "pt"
+) {
   const postUrl = getAbsoluteUrl(`/blog/${post.slug}`);
-  const siteUrl = env.NEXT_PUBLIC_SITE_URL;
 
-  // Get the primary author or first author
   const author = post.primary_author || post.authors?.[0];
 
   return {
@@ -149,6 +151,6 @@ export function generatePostStructuredData(post: PostOrPage) {
     },
     keywords: post.tags?.map((t) => t.name).filter(Boolean) || [],
     url: postUrl,
-    inLanguage: "pt-BR",
+    inLanguage: locale === "pt" ? "pt-BR" : "en-US",
   };
 }

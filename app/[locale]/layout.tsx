@@ -39,6 +39,10 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: "/",
+      languages: {
+        pt: "/",
+        en: "/en",
+      },
     },
     openGraph: {
       type: "website",
@@ -47,11 +51,13 @@ export async function generateMetadata({
       title: t("title"),
       description: t("description"),
       url: "/",
+      images: ["/opengraph-image"],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: ["/opengraph-image"],
     },
   };
 }
