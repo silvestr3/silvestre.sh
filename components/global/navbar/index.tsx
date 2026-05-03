@@ -60,7 +60,7 @@ export function Navbar() {
           <SheetContent
             side="right"
             showClose={false}
-            className="w-96 gap-8 sm:w-[320px]"
+            className="w-70 gap-8 sm:w-[320px]"
           >
             <SheetHeader className="pr-10">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
@@ -69,7 +69,8 @@ export function Navbar() {
               </div>
             </SheetHeader>
             <div className="flex flex-col gap-8">
-              <div className="flex justify-end">
+              <div className="flex justify-between">
+                <LocaleSwitcher />
                 <SheetClose asChild>
                   <Button
                     aria-label="Close navigation menu"
@@ -79,9 +80,6 @@ export function Navbar() {
                     <XIcon />
                   </Button>
                 </SheetClose>
-              </div>
-              <div className="w-fit">
-                <LocaleSwitcher />
               </div>
               <ul className="flex flex-col gap-6">
                 {items.map((item, index) => (
