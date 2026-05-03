@@ -28,11 +28,13 @@ export async function generateMetadata({
       description: t("blogDescription"),
       url: "/blog",
       type: "website",
+      images: ["/opengraph-image"],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: t("blogTitle"),
       description: t("blogDescription"),
+      images: ["/opengraph-image"],
     },
   };
 }

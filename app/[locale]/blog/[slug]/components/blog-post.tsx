@@ -7,12 +7,13 @@ import { generatePostStructuredData } from "@/lib/seo";
 
 interface BlogPostProps {
   slug: string;
+  locale: "pt" | "en";
   readingTimeLabel: string;
 }
 
-export function BlogPost({ slug, readingTimeLabel }: BlogPostProps) {
+export function BlogPost({ slug, locale, readingTimeLabel }: BlogPostProps) {
   const post = use(readPost(slug));
-  const structuredData = generatePostStructuredData(post);
+  const structuredData = generatePostStructuredData(post, locale);
 
   return (
     <>
